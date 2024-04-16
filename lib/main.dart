@@ -5,6 +5,7 @@ import '../local_notification_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await LocalNotificationService.init();
+
   runApp(const MyApp());
 }
 
@@ -68,13 +69,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
           ),
           ListTile(
             onTap: () {
-              // LocalNotificationService.showSheduledNotification();
+              LocalNotificationService.showSheduledNotification();
             },
             leading: const Icon(Icons.notifications),
             title: const Text('Scheduled Notification'),
             trailing: IconButton(
                 onPressed: () {
-                  LocalNotificationService.cancelNotification(1);
+                  LocalNotificationService.cancelNotification(2);
                 },
                 icon: const Icon(
                   Icons.cancel,
