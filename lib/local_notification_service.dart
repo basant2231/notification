@@ -23,9 +23,12 @@ class LocalNotificationService {
 
   //basic notification
   static void showBasicNotification() async {
-    NotificationDetails details = const NotificationDetails(
+    NotificationDetails details = NotificationDetails(
         android: AndroidNotificationDetails('id 0', 'basic notifocation',
-            importance: Importance.max, priority: Priority.high));
+            importance: Importance.max,
+            priority: Priority.high,
+            sound: RawResourceAndroidNotificationSound(
+                'lib/assets/sound.mp3'.split('.').first)));
     await flutterLocalNotificationsPlugin.show(
         0, 'basic notification', 'body', details,
         payload: 'payload data');
@@ -57,7 +60,7 @@ class LocalNotificationService {
         'scheduled notifocation',
         'boddkjnsjkgnsjky',
         // tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5)),
-// 2 hours difference
+        // 2 hours difference
 
         tz.TZDateTime(tz.local, 2024, 4, 17, 22, 50),
         details,
